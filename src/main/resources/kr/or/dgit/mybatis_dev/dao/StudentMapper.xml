@@ -15,11 +15,53 @@
 	</sql>
 	
 	
+	
 	<resultMap type="Student" id="StudentResult">
 		<id property="studId" column="stud_id"/>
 		<result property="name" column="name"/> 
 		<result property="email" column="email"/>
+		<result property="phone" column="phone"/>
+		<result property="dob" column="dob"/>		
 	</resultMap>
+	
+	
+	<resultMap type="Student" id="StudentResultExtends" extends="StudentResult">
+		<result property="address.addrId" column="addr_id"/>
+		<result property="address.street" column="street"/>
+		<result property="address.city" column="city"/>
+		<result property="address.state" column="state"/>
+		<result property="address.zip" column="zip"/>
+		<result property="address.country" column="country"/>
+	</resultMap>
+	
+	
+	
+	
+	
+	<resultMap type="Student" id="StudentResultAssociation" extends="StudentResult">
+		<association property="address" resultMap="kr.or.dgit.mybatis_dev.dao.AddressMapper.AddressResult"></association>
+	</resultMap>
+	
+	<select id="selectStudentByNoAssociation" parameterType="Student" resultMap="StudentResult">
+		select Stud_id, name, email, phone, dob, a.ADDR_ID, street, city, state, zip, country 
+		from students s left join addresses a on s.ADDR_ID=a.ADDR_ID
+		<include refid="whereSql"></include>
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
 		
 	<!-- resultMap="StudentResult" -->
 	<select id="selectStudentByNoForResultMap" parameterType="Student" resultMap="StudentResult">
@@ -32,7 +74,8 @@
 	
 	
 	
-	<!-- resultMap="map" hashMap으로 결과 리턴 -->
+	
+	<!-- resultType="map" hashMap으로 결과 리턴 -->
 	<select id="selectStudentByNoForHashMap" parameterType="Student" resultType="map">
 		<include refid="selectSql"></include>
 		<include refid="whereSql"></include>

@@ -50,6 +50,34 @@ public class StudentService {
 	}
 	
 	
+	public Student selectStudentByNoWithAddress (Student student){
+		log.debug("selectStudentByNoWithAddress()");
+		try(SqlSession sqlSession = MybatisSqlSessionFactory.openSession();){			
+			return sqlSession.selectOne(namespace+".selectStudentByNoWithAddress", student);
+		}
+	}	
+	
+	
+	
+	
+	public Student selectStudentByNoAssociation(Student student){
+		log.debug("selectStudentByNoAssociation()");
+		try(SqlSession sqlSession = MybatisSqlSessionFactory.openSession();){			
+			return sqlSession.selectOne(namespace+".selectStudentByNoAssociation", student);
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }
