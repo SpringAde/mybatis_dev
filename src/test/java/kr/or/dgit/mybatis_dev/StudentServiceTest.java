@@ -3,6 +3,8 @@ package kr.or.dgit.mybatis_dev;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import org.apache.ibatis.session.SqlSession;
 import org.junit.After;
@@ -47,7 +49,7 @@ public class StudentServiceTest {
 		System.out.println("tearDown()");
 	}
 	
-	
+	/*****************************************************************/
 		
 	@Test
 	public void aTestselectStudentByNoForResultMap(){
@@ -65,6 +67,31 @@ public class StudentServiceTest {
 		Assert.assertNotEquals(emptyLists, lists);
 	}
 	
+	/*****************************************************************/
+	
+	@Test
+	public void TestSelectStudentByNoForHashMap(){
+		Student student = new Student();
+		student.setStudId(1);
+		
+		Map<String, Object> selectStudent = StudentService.selectStudentByNoForHashMap(student);		
+		for(Entry<String, Object> e:selectStudent.entrySet()){
+			System.out.printf("key:%s -> value : %s $n", e.getKey(), e.getValue());
+		}
+		Assert.assertNotNull(selectStudent);
+	}
+	@Test 
+	public void TestSelectStudentByAllForHashMap(){
+		List<Map<String, Object>> lists = StudentService.selectStudentByAllForHashMap();
+		List<Map<String, Object>> emptyLists = Collections.emptyList();
+		
+		for(Map<String, Object> map : lists){
+			for(Entry<String, Object> e : map.entrySet()){
+				System.out.printf("key:%s -> value : %s $n", e.getKey(), e.getValue());
+			}
+		}
+		Assert.assertNotEquals(emptyLists, lists);
+	}
 	
 	
 	}

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.or.dgit.mybatis_dev.dao.StudentMapper">
+
 	<sql id="selectSql">
 		select Stud_id, name, email, phone, dob from students 
 	</sql>
@@ -20,12 +21,23 @@
 		<result property="email" column="email"/>
 	</resultMap>
 		
-	
+	<!-- resultMap="StudentResult" -->
 	<select id="selectStudentByNoForResultMap" parameterType="Student" resultMap="StudentResult">
 		<include refid="selectSql"></include>
 		<include refid="whereSql"></include>
 	</select>
 	<select id="selectStudentByAllForResultMap" resultMap="StudentResult">
+		<include refid="selectSql"></include>		
+	</select>
+	
+	
+	
+	<!-- resultMap="map" hashMap으로 결과 리턴 -->
+	<select id="selectStudentByNoForHashMap" parameterType="Student" resultType="map">
+		<include refid="selectSql"></include>
+		<include refid="whereSql"></include>
+	</select>
+	<select id="selectStudentByAllForHashMap" resultType="map">
 		<include refid="selectSql"></include>		
 	</select>
 	
