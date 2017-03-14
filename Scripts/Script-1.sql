@@ -87,3 +87,6 @@ INSERT INTO COURSE_ENROLLMENT (COURSE_ID,STUD_ID) VALUES
  //////////////////////////////////////////////////////////////////////////////////////////////////////
  
  
+ select Stud_id, name, email, phone, dob from students where stud_id = 1;
+ select Stud_id, name, email, phone, dob from students;
+ 
