@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.or.dgit.mybatis_dev.dao.CourseMapper">
+
 	<resultMap type="Course" id="CourseResult">
 		<id property="courseId"	column="course_id"/>
 		<result property="name" column="name"/>
@@ -8,4 +9,86 @@
 		<result property="startDate" column="start_date"/>
 		<result property="endDate" column="end_date"/>
 	</resultMap>
+	
+	<select id="searchCourse" parameterType="hashmap" resultMap="CourseResult">
+		select * from courses where TUTOR_ID=#{tutorId}
+		<if test="courseName != null">		<!-- map.getkey("courseName") -->
+			and NAME like #{courseName}
+		</if>
+		<if test="startDate != null">
+			and START_DATE &gt;= #{startDate}		<!-- &gt;(>) -->
+		</if>
+		<if test="endDate != null">
+	 		and END_DATE &lt;= #{endDate}
+		</if>		
+	</select>
+	
+	
+	
+	
+	<select id="searchChooseCourse"	parameterType="hashMap" resultMap="CourseResult">
+		select * from courses
+		<choose>
+			<when test="searchBy=='Tutor'">
+				where TUTOR_ID=#{tutorId}
+			</when>
+			<when test="searchBy=='CourseName'">
+				where NAME like #{courseName}
+			</when>
+			<otherwise>
+				where END_DATE &lt;= now()
+			</otherwise>
+			
+		</choose>
+	</select>
+	
+	<select id="searchWhereCourse" parameterType="hashMap" resultMap="CourseResult">
+		select * from courses
+		<where>
+			<if test="tutorId != null">
+				tutor_id=#{tutorId}
+			</if>
+			<if test="courseName != null">
+				and name like #{courseName}
+			</if>
+			<if test="statDate != null">
+				and start_date &gt;= #{startDate}
+			</if>
+			<if test="endDate != null">
+				and end_date &lt;= #{endDate}
+			</if>			
+		</where>
+	</select>	
+	
+	<select id="searchTrimCourse" parameterType="hashMap" resultMap="CourseResult">
+		select * from courses
+		<trim prefix="where" prefixOverrides="AND | OR">
+			<if test="tutorId != null">
+				tutor_id=#{tutorId}
+			</if>
+			
+			<if test="courseName != null">
+				and name like #{courseName}
+			</if>
+		</trim>
+	</select>
+	
+	
+	<select id="searchForEachCourse" parameterType="map" resultMap="CourseResult">
+		select * from courses
+		<if test="tutorIds != null">
+			<where>
+				tutor_id IN
+				<foreach item="tutorId" collection="tutorIds" index="index" 
+					open="(" close=")" separator=",">
+					#{tutorId} 
+				</foreach>				
+			</where>		
+		</if>
+	</select>
 </mapper>
+
+
+
+
+

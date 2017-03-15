@@ -19,5 +19,7 @@ public interface StudentMapper {
 		
 	Student selectStudentByNoAssociation(Student student);
 	
+	int updateSetStudent(Student student); 		// 동적SQL set
+	
 
 }

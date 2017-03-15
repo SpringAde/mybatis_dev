@@ -10,7 +10,7 @@ import kr.or.dgit.mybatis_dev.services.TutorService;
 
 public class TutorServiceTest {
 	private static TutorService tutorService;
-
+/*
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		tutorService = new TutorService();
@@ -25,5 +25,5 @@ public class TutorServiceTest {
 	public void testFindTutorById() {			
 		Tutor tutor = tutorService.findTutorById(1);
 		Assert.assertNotNull(tutor);
-	}
+	}*/
 }

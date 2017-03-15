@@ -2,6 +2,7 @@ package kr.or.dgit.mybatis_dev;
 
 import java.util.Collections;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -49,7 +50,7 @@ public class StudentServiceTest {
 		System.out.println("tearDown()");
 	}
 	
-	/*****************************************************************/
+	/*****************************************************************//*
 		
 	@Test
 	public void aTestselectStudentByNoForResultMap(){
@@ -67,7 +68,7 @@ public class StudentServiceTest {
 		Assert.assertNotEquals(emptyLists, lists);
 	}
 	
-	/*****************************************************************/
+	*//*****************************************************************//*
 	
 	@Test
 	public void TestSelectStudentByNoForHashMap(){
@@ -80,6 +81,8 @@ public class StudentServiceTest {
 		}
 		Assert.assertNotNull(selectStudent);
 	}
+	
+	
 	@Test 
 	public void TestSelectStudentByAllForHashMap(){
 		List<Map<String, Object>> lists = StudentService.selectStudentByAllForHashMap();
@@ -111,5 +114,39 @@ public class StudentServiceTest {
 		
 		Student selectStudent = StudentService.selectStudentByNoAssociation(student);
 		Assert.assertNotNull(selectStudent);
+	}*/
+	
+	
+	
+	@Test
+	public void aTestUpdateSetStudent(){
+		Student student = new Student();
+		student.setStudId(1);
+		student.setEmail("test@test.co.kr");
+		student.setPhone(new PhoneNumber("987-654-3210"));
+		student.setDob(new Date());
+		
+		int updateResult = StudentService.updateSetStudent(student);
+		Assert.assertSame(1, updateResult);			
+		
 	}
+	
+	
+	@Test
+	public void bTestUpdateSetStudent(){
+		Student student = new Student();
+		student.setStudId(2);
+		student.setEmail("twotwo@test.co.kr");
+		student.setPhone(new PhoneNumber("222-222-2222"));
+		student.setDob(new Date());
+		
+		int updateResult = StudentService.updateSetStudent(student);
+		Assert.assertSame(1, updateResult);		
+		
+	}
+	
+	
+	
+	
+	
 }

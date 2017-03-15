@@ -68,8 +68,20 @@ public class StudentService {
 		}
 	}
 	
+	/*****************************************************************/
+	
+	public int updateSetStudent(Student student){
+		log.debug("updateSetStudent()");
+		int res = -1;
+		try(SqlSession sqlSession = MybatisSqlSessionFactory.openSession();){			
+			 res = sqlSession.update(namespace+".updateSetStudent", student);
+		}
+		return res;
+	}
 	
 }
+
+
 
 
 
