@@ -87,8 +87,14 @@ INSERT INTO COURSE_ENROLLMENT (COURSE_ID,STUD_ID) VALUES
  //////////////////////////////////////////////////////////////////////////////////////////////////////
  
  
- select Stud_id, name, email, phone, dob from students where stud_id = 1;
- select Stud_id, name, email, phone, dob from students;
+select Stud_id, name, email, phone, dob from students where stud_id = 1;
+select Stud_id, name, email, phone, dob from students;
  
 select Stud_id, name, email, phone, dob, a.ADDR_ID, street, city, state, zip, country 
 from students s left join addresses a on s.ADDR_ID=a.ADDR_ID where STUD_ID=1;
+
+select t.tutor_id, t.name as tutor_name, email, c.course_id, c.name, description, start_date, end_date
+from tutors t left outer join addresses a on t.ADDR_ID = a.ADDR_ID
+	left outer join courses c on t.TUTOR_ID=c.tutor_id
+where t.TUTOR_ID=1;
+	

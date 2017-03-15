@@ -112,24 +112,4 @@ public class StudentServiceTest {
 		Student selectStudent = StudentService.selectStudentByNoAssociation(student);
 		Assert.assertNotNull(selectStudent);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	}
-
-	
-
-
-
-
-
-	
-
-
-
-
+}

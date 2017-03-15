@@ -48,18 +48,12 @@
 		<include refid="whereSql"></include>
 	</select>
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-	
+	<select id="selectStudentByNoWithAddress" parameterType="Student" resultMap="StudentResultExtends">
+		select stud_id, name, email, phone, dob, a.ADDR_ID, street, city,state, zip, country
+		from students s left join addresses a on s.ADDR_ID=a.ADDR_ID
+		<include refid="whereSql"></include>
+	</select>
+		
 	
 	
 		

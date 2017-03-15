@@ -13,9 +13,10 @@ import kr.or.dgit.mybatis_dev.dto.Student;
 import kr.or.dgit.mybatis_dev.util.MybatisSqlSessionFactory;
 
 public class StudentService {
-	private static final Log log = LogFactory.getLog(StudentService.class);
-	
+	private static final Log log = LogFactory.getLog(StudentService.class);	
 	private String namespace="kr.or.dgit.mybatis_dev.dao.StudentMapper";
+	
+	
 	
 	public Student selectStudentByNoForResultMap(Student student){
 		log.debug("selectStudentByNoForResultMap()");
@@ -66,18 +67,6 @@ public class StudentService {
 			return sqlSession.selectOne(namespace+".selectStudentByNoAssociation", student);
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 }
