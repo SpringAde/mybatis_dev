@@ -126,7 +126,7 @@ where TUTOR_ID in (1, 2);
 create table user_pics(
 	id int(11) not null auto_increment,
 	name varchar(50) default null,
-	pic blob,
+	pic longblob,
 	bio longtext,
 	primary key(id)
 );
