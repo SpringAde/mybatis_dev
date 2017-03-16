@@ -17,6 +17,7 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
+import kr.or.dgit.mybatis_dev.dto.Gender;
 import kr.or.dgit.mybatis_dev.dto.PhoneNumber;
 import kr.or.dgit.mybatis_dev.dto.Student;
 import kr.or.dgit.mybatis_dev.services.StudentService;
@@ -50,6 +51,7 @@ public class StudentServiceTest {
 		System.out.println("tearDown()");
 	}
 	
+}
 	/*****************************************************************//*
 		
 	@Test
@@ -117,7 +119,7 @@ public class StudentServiceTest {
 	}*/
 	
 	
-	
+/*	
 	@Test
 	public void aTestUpdateSetStudent(){
 		Student student = new Student();
@@ -144,9 +146,16 @@ public class StudentServiceTest {
 		Assert.assertSame(1, updateResult);		
 		
 	}
+*/
+	
+/*	@Test
+	public void testInsertStudent(){
+		Student student = new Student(6, "lala", "lala@test.co.kr", new Date(), Gender.MAIE);
+		int res = StudentService.insertStudent(student);		
+		Assert.assertEquals(1, res);		// 1과 같아야 성공 (Updates: 1)
+	}*/
+	
+
 	
 	
 	
-	
-	
-}

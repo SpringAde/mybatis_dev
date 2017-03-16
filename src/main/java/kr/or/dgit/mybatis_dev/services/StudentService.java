@@ -13,12 +13,12 @@ import kr.or.dgit.mybatis_dev.dto.Student;
 import kr.or.dgit.mybatis_dev.util.MybatisSqlSessionFactory;
 
 public class StudentService {
+	
 	private static final Log log = LogFactory.getLog(StudentService.class);	
 	private String namespace="kr.or.dgit.mybatis_dev.dao.StudentMapper";
 	
 	
-	
-	public Student selectStudentByNoForResultMap(Student student){
+/*	public Student selectStudentByNoForResultMap(Student student){
 		log.debug("selectStudentByNoForResultMap()");
 		try(SqlSession sqlSession = MybatisSqlSessionFactory.openSession();){			
 			return sqlSession.selectOne(namespace+".selectStudentByNoForResultMap", student);
@@ -34,7 +34,7 @@ public class StudentService {
 	
 	
 	
-	/*****************************************************************/
+	*//*****************************************************************//*
 	
 	public Map<String, Object> selectStudentByNoForHashMap(Student student){
 		log.debug("selectStudentByNoForHashMap()");
@@ -59,8 +59,6 @@ public class StudentService {
 	}	
 	
 	
-	
-	
 	public Student selectStudentByNoAssociation(Student student){
 		log.debug("selectStudentByNoAssociation()");
 		try(SqlSession sqlSession = MybatisSqlSessionFactory.openSession();){			
@@ -68,7 +66,7 @@ public class StudentService {
 		}
 	}
 	
-	/*****************************************************************/
+	*//*****************************************************************//*
 	
 	public int updateSetStudent(Student student){
 		log.debug("updateSetStudent()");
@@ -77,7 +75,18 @@ public class StudentService {
 			 res = sqlSession.update(namespace+".updateSetStudent", student);
 		}
 		return res;
+	}*/
+	
+	public int insertStudent(Student student){
+		log.debug("insertSetStudent()");
+		int res = -1;
+		try(SqlSession sqlSession = MybatisSqlSessionFactory.openSession();){			
+			 res = sqlSession.insert(namespace+".insertStudent", student);
+			 sqlSession.commit();
+		}		
+		return res;
 	}
+	
 	
 }
 

@@ -19,4 +19,13 @@ public class TutorService {
 			return sqlSession.selectOne(namespace+".findTutorById", id);
 		}	
 	}
+	
+	public int insertTutor(Tutor tutor){
+		log.debug("insertTutor()");
+		try(SqlSession sqlSession = MybatisSqlSessionFactory.openSession();){
+			int res= sqlSession.insert(namespace+".insertTutor", tutor);
+			sqlSession.commit();
+			return res;
+		}	
+	}	
 }

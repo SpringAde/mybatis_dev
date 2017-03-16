@@ -5,7 +5,7 @@
 	<resultMap type="Tutor" id="TutorResult">
 		<id property="tutorId" column="Tutor_id"/>
 		<result property="name" column="tutor_name"/>
-		<result property="email" column="email"/>
+		<result property="email" column="email"/>		
 		<collection property="courses" resultMap="kr.or.dgit.mybatis_dev.dao.CourseMapper.CourseResult"/>
 	</resultMap>                                 
 	
@@ -15,4 +15,10 @@
 			left outer join courses c on t.TUTOR_ID=c.tutor_id
 		where t.TUTOR_ID=#{tutorId}
 	</select>
+	
+	<insert id="insertTutor" parameterType="Tutor">
+		insert into tutors (tutor_id, name, email, gender)
+		values(#{tutorId},#{name},#{email},#{gender})
+	</insert>
+	
 </mapper>

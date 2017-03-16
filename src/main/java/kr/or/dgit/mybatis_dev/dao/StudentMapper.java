@@ -11,15 +11,17 @@ public interface StudentMapper {
 	List<Student> selectStudentByAllForResultMap();
 	
 	Map<String, Object> selectStudentByNoForHashMap(Student student);
-	List<Map<String, Object>> selectStudentByAllForHashMap();
+	List<Map<String, Object>> selectStudentByAllForHashMap();	
 	
-	
-	Student selectStudentByNoWithAddress(Student student);	
-	
-		
+	Student selectStudentByNoWithAddress(Student student);		
 	Student selectStudentByNoAssociation(Student student);
 	
 	int updateSetStudent(Student student); 		// 동적SQL set
 	
-
+	
+	int insertStudent(Student student);
+	int updateStudent(Student student);
+	int deleteStudentByNo(int studId);
+	
+	
 }

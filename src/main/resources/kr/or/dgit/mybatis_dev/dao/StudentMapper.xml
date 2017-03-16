@@ -83,8 +83,6 @@
 	
 	
 	
-	
-	
 	<!-- 동적SQL set -->
 	<update id="updateSetStudent" parameterType="Student">
 		update students
@@ -96,5 +94,29 @@
 		</set>
 		where stud_id=#{studId}
 	</update>
+	
+	
+	
+	
+	
+	
+	
+	<insert id="insertStudent" parameterType="Student">
+		insert into students (stud_id, name, email, dob, gender)
+		values(#{studId}, #{name}, #{email}, #{dob}, #{gender})			<!-- rs작업과 동일 -->
+	</insert>
+	
+	
+	<update id="updateStudent" parameterType="Student">
+		update student set name=#{name}, email=#{email}, dob=#{dob} where stud_id = #{studId}
+	</update>
+	
+	<delete id="deleteStudentByNo" parameterType="int">
+		delete from student where stud_id = #{studId}
+	</delete>
+	
+
+
+
 
 </mapper>

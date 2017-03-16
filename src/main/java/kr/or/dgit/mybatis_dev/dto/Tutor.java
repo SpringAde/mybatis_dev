@@ -8,10 +8,21 @@ public class Tutor {
 	private String email;
 	private Address address;
 	private List<Course> courses;			// 일대다 매핑, 교사가 여러 과목을 가르칠 수 있다.
+	private Gender gender;
+	
+	
+	public Tutor(int tutorId, String name, String email, Gender gender) {
+		this.tutorId = tutorId;
+		this.name = name;
+		this.email = email;
+		this.gender = gender;
+	}
 	
 	public int getTutorId() {
 		return tutorId;
 	}
+	
+	
 	public void setTutorId(int tutorId) {
 		this.tutorId = tutorId;
 	}
