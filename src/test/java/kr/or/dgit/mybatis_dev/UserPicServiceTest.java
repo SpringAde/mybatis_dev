@@ -31,7 +31,7 @@ public class UserPicServiceTest {
 		userPicService = null;
 	}
 	
-	@Test
+/*	@Test
 	public void aTestInsertUserPic() {
 		byte[] pic = null;
 		File file = new File(System.getProperty("user.dir")+"\\DataFiles\\eric.jpg");		//파일불러오기
@@ -47,7 +47,7 @@ public class UserPicServiceTest {
 		UserPic userPic = new UserPic(1, "에릭", pic, "영어랩");		
 		int res = userPicService.insertUserPic(userPic);
 		Assert.assertEquals(1, res);		
-	}
+	}*/
 
 	@Test
 	public void bTestFindUserPicById() {			

@@ -21,7 +21,8 @@ public interface StudentMapper {
 	
 	int insertStudent(Student student);
 	int updateStudent(Student student);
-	int deleteStudentByNo(int studId);
+	int deleteStudentByNo(Student student);
+	
 	
 	
 }

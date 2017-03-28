@@ -130,4 +130,8 @@ create table user_pics(
 	bio longtext,
 	primary key(id)
 );
-	
+
+
+select addr_id, street, city, state, zip, country 
+from addresses 
+where state='CA' and zip='92110';
