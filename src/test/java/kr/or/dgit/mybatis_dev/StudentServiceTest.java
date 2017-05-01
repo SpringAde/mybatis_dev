@@ -51,7 +51,7 @@ public class StudentServiceTest {
 		System.out.println("tearDown()");
 	}
 	
-}
+
 	/*****************************************************************//*
 		
 	@Test
@@ -70,7 +70,7 @@ public class StudentServiceTest {
 		Assert.assertNotEquals(emptyLists, lists);
 	}
 	
-	*//*****************************************************************//*
+	/*****************************************************************/
 	
 	@Test
 	public void TestSelectStudentByNoForHashMap(){
@@ -116,8 +116,8 @@ public class StudentServiceTest {
 		
 		Student selectStudent = StudentService.selectStudentByNoAssociation(student);
 		Assert.assertNotNull(selectStudent);
-	}*/
-	
+	}	
+}
 	
 /*	
 	@Test

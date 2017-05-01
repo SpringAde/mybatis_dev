@@ -18,7 +18,7 @@ public class StudentService {
 	private String namespace="kr.or.dgit.mybatis_dev.dao.StudentMapper";
 	
 	
-/*	public Student selectStudentByNoForResultMap(Student student){
+	public Student selectStudentByNoForResultMap(Student student){
 		log.debug("selectStudentByNoForResultMap()");
 		try(SqlSession sqlSession = MybatisSqlSessionFactory.openSession();){			
 			return sqlSession.selectOne(namespace+".selectStudentByNoForResultMap", student);
@@ -34,7 +34,7 @@ public class StudentService {
 	
 	
 	
-	*//*****************************************************************//*
+	/*****************************************************************/
 	
 	public Map<String, Object> selectStudentByNoForHashMap(Student student){
 		log.debug("selectStudentByNoForHashMap()");
@@ -66,7 +66,7 @@ public class StudentService {
 		}
 	}
 	
-	*//*****************************************************************//*
+	/*****************************************************************/
 	
 	public int updateSetStudent(Student student){
 		log.debug("updateSetStudent()");
@@ -75,7 +75,7 @@ public class StudentService {
 			 res = sqlSession.update(namespace+".updateSetStudent", student);
 		}
 		return res;
-	}*/
+	}
 	
 	public int insertStudent(Student student){
 		log.debug("insertSetStudent()");

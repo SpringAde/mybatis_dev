@@ -27,7 +27,7 @@ public class CourseServiceTest {
 		courseService = null;
 	}
 	
-/*	@Test
+	@Test
 	public void aTestSearchCourse() {			
 		Map<String, Object> param = new HashMap<>();
 		param.put("tutorId", 1);
@@ -37,10 +37,10 @@ public class CourseServiceTest {
 		
 		List<Course>searchCourse = courseService.searchCourse(param);
 		Assert.assertNotNull(searchCourse);
-	}*/
+	}
 	
 	
-/*	@Test
+	@Test
 	public void bTestSearchChooseCourse() {			
 		Map<String, Object> param = new HashMap<>();
 		param.put("tutorId", 1);
@@ -69,16 +69,16 @@ public class CourseServiceTest {
 		
 		List<Course> searchWhereCourse = courseService.searchWhereCourse(param);
 		Assert.assertNotNull(searchWhereCourse);		
-	}*/
+	}
 	
 	
-	/*@Test
+	@Test
 	public void dTestSearchTrimCourse() {			
 		Map<String, Object> param = new HashMap<>();
 		param.put("tutorId", 1);		
 		
 		List<Course> searchTrimCourse = courseService.searchTrimCourse(param);
-	}*/
+	}
 	
 	
 	@Test
